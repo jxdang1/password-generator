@@ -1,9 +1,9 @@
 // Assignment code here
 
 //added arrays for each type of characters
-var  lowerCase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+var lowerCase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 var upperCase = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
-var numbers = ["1","2","3","4","5","6","7","8","9"];
+var Nums = ["1","2","3","4","5","6","7","8","9"];
 var symbols = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`", "{", "}", "|", "~"];
 
 //variables for user input
@@ -17,36 +17,43 @@ var passLength;
 
 var newPassword;
 
+//function to generate a new password
 
 function generatePassword() {
-  passLength = prompt("Please enter the number of characters in your password (a number from 8 to 128.)");
+  //when prompted, choose desired length of password
+  passLength = prompt("Please enter the number of characters in your password (a number from 8 to 128).");
 
-
+  //evaluates if the length of the password meets the requirements
   passLength = Number(passLength);
-  if (passLength >= 8 && passLength <=128) {
+
+
+    if (passLength >= 8 && passLength <= 128) {
+
+      //booleans for each type of characters
       addLowerCase = confirm("Would you like to add lowercase letters to your password?");
       addUpperCase = confirm("Would you like to add uppercase letters to your password?");
       addNumbers = confirm("Would you like to add numbers to your password?");
       addSymbols = confirm("Would you like to add symbols to your password?");
   
 
-  if (!addLowerCase && !addUpperCase && !addNumbers && !addSymbols) {
-    alert("Please select at least one character type!");
-    generatePassword();
-  }
+     if (!addLowerCase && !addUpperCase && !addNumbers && !addSymbols) {
+       alert("Please select at least one character type!");
+      generatePassword();
+    }
 
-  } else {
-    alert ("Please enter a valid number between 8 and 128");
-    generatePassword();
+    }  else {
+        alert("Please enter a valid number between 8 and 128");
+        generatePassword();
+
   }
 
   
 
-// variable that adds each set of characters to newPassword if it is selected
+// variable that adds each set of characters to newPassword if it is selected and where it is stored
 var passOverall = [];
 
 
-//if selected, each set of characters is added to the newPassword
+//if selected, each type of characters from each set is added to the newPassword
 
 if (addLowerCase) {
   passOverall = passOverall.concat(lowerCase);
@@ -57,7 +64,7 @@ if (addUpperCase) {
 }
 
 if (addNumbers) {
-  passOverall = passOverall.concat(numbers);
+  passOverall = passOverall.concat(Nums);
 }
 
 if (addSymbols) {
@@ -68,15 +75,15 @@ if (addSymbols) {
 passOverall = "";
 
 // added for loop that chooses a random character from the array and enters it for newPassword until it reaches the length it needs to be
-for (let i = 0; i < passLength; i++) {
+for (var i = 0; i < passLength; i++) {
   newPassword += passOverall[Math.floor(Math.random() * passOverall.length)];
 }
 
+//returns the generated password
 return newPassword;
+
 }
 
-
-// varLetters (from starter code)
 
 // Assignment starter code:
 
@@ -87,7 +94,6 @@ var generateBtn = document.querySelector("#generate");
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
   passwordText.value = password;
 
 }
