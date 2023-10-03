@@ -1,32 +1,79 @@
 // Assignment code here
-//added arrays for each type of characters
 
+//added arrays for each type of characters
 var  lowerCase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 var upperCase = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 var numbers = ["1","2","3","4","5","6","7","8","9"];
-var specialChars = ['"', " ", "!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`", "{", "}", "|", "~"];
+var symbols = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`", "{", "}", "|", "~"];
+
+//variables for user input
+var addLowerCase;
+var addUpperCase;
+var addNumbers;
+var addSymbols;
+var passLength;
+
+//variable to generate a new password
+
+var newPassword;
 
 
+function generatePassword() {
+  passLength = prompt("Please enter the number of characters in your password (a number from 8 to 128.)");
 
 
+  passLength = Number(passLength);
+  if (passLength >= 8 && passLength <=128) {
+      addLowerCase = confirm("Would you like to add lowercase letters to your password?");
+      addUpperCase = confirm("Would you like to add uppercase letters to your password?");
+      addNumbers = confirm("Would you like to add numbers to your password?");
+      addSymbols = confirm("Would you like to add symbols to your password?");
+  
+
+  if (!addLowerCase && !addUpperCase && !addNumbers && !addSymbols) {
+    alert("Please select at least one character type!");
+    generatePassword();
+  }
+
+  } else {
+    alert ("Please enter a valid number between 8 and 128");
+    generatePassword();
+  }
+
+  
+
+// variable that adds each set of characters to newPassword if it is selected
+var passOverall = [];
 
 
+//if selected, each set of characters is added to the newPassword
+
+if (addLowerCase) {
+  passOverall = passOverall.concat(lowerCase);
+} 
+
+if (addUpperCase) {
+  passOverall = passOverall.concat(upperCase);
+}
+
+if (addNumbers) {
+  passOverall = passOverall.concat(numbers);
+}
+
+if (addSymbols) {
+  passOverall = passOverall.concat(symbols);
+}
 
 
+passOverall = "";
 
+// added for loop that chooses a random character from the array and enters it for newPassword until it reaches the length it needs to be
+for (let i = 0; i < passLength; i++) {
+  newPassword += passOverall[Math.floor(Math.random() * passOverall.length)];
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
+return newPassword;
+}
 
 
 // varLetters (from starter code)
