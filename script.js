@@ -4,7 +4,7 @@
 var lowerCase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 var upperCase = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 var Nums = ["1","2","3","4","5","6","7","8","9"];
-var symbols = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`", "{", "}", "|", "~"];
+var symbols = ['"', " ", "!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`", "{", "}", "|", "~"];
 
 //variables for user input
 var addLowerCase;
@@ -25,7 +25,6 @@ function generatePassword() {
 
   //evaluates if the length of the password meets the requirements
   passLength = Number(passLength);
-
 
     if (passLength >= 8 && passLength <= 128) {
 
@@ -75,7 +74,7 @@ if (addSymbols) {
 passOverall = "";
 
 // added for loop that chooses a random character from the array and enters it for newPassword until it reaches the length it needs to be
-for (var i = 0; i < passLength; i++) {
+for (var i= 0; i < passOverall; i++) {
   newPassword += passOverall[Math.floor(Math.random() * passOverall.length)];
 }
 
