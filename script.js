@@ -3,7 +3,7 @@
 //added arrays for each type of characters
 var lowerCase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 var upperCase = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
-var Nums = ["1","2","3","4","5","6","7","8","9"];
+var nums = ["1","2","3","4","5","6","7","8","9"];
 var symbols = ['"', " ", "!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`", "{", "}", "|", "~"];
 
 //variables for user input
@@ -63,7 +63,7 @@ if (addUpperCase) {
 }
 
 if (addNumbers) {
-  passOverall = passOverall.concat(Nums);
+  passOverall = passOverall.concat(nums);
 }
 
 if (addSymbols) {
@@ -71,14 +71,14 @@ if (addSymbols) {
 }
 
 
-passOverall = "";
+newPassword = "";
 
 // added for loop that chooses a random character from the array and enters it for newPassword until it reaches the length it needs to be
-for (var i= 0; i < passOverall; i++) {
+for (var i= 0; i < passLength; i++) {
   newPassword += passOverall[Math.floor(Math.random() * passOverall.length)];
 }
 
-//returns the generated password
+//returns the generated password into textbook
 return newPassword;
 
 }
