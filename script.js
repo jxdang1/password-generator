@@ -34,7 +34,7 @@ function generatePassword() {
       addNumbers = confirm("Would you like to add numbers to your password?");
       addSymbols = confirm("Would you like to add symbols to your password?");
   
-
+// 
      if (!addLowerCase && !addUpperCase && !addNumbers && !addSymbols) {
        alert("Please select at least one character type!");
       generatePassword();
