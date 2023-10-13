@@ -16,7 +16,7 @@ N/A
 
 Here is a screenshot of what the deployed page will look like with a generated password displayed on the website:
 
-![Image of password generator project](password-generator-ss.png)
+![Image of password generator project](./assets/password-generator-ss.png)
 
 
 
